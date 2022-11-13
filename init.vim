@@ -10,8 +10,9 @@ set number
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 let g:OmniSharp_server_stdio = 0
 
-call plug#begin()
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
+call plug#begin()
 Plug 'http://github.com/tpope/vim-surround' 
 Plug 'https://github.com/preservim/nerdtree' 
 Plug 'https://github.com/tpope/vim-commentary' 
@@ -26,6 +27,7 @@ Plug 'https://github.com/preservim/tagbar'
 Plug 'https://github.com/terryma/vim-multiple-cursors' 
 Plug 'https://github.com/puremourning/vimspector'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'elixir-editors/vim-elixir'
 set encoding=UTF-8
 
 call plug#end()
